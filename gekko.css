@@ -1,0 +1,80 @@
+h1{
+    color: #2c3e50;
+    font-family: 'Audiowide', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 5rem;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+select, input[type="number"], input[type="checkbox"] {
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+select, input[type="number"] {
+    width: 200px;
+}
+
+#prix {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 20px 0;
+}
+
+#submit {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#submit:hover {
+    background-color: #0056b3;
+}
+
+#submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#payment-element {
+    margin: 20px 0;
+}
+
+#payment-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#payment-message.hidden {
+    display: none;
+}
+
+#payment-message:not(.hidden) {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Audiowide';
+    src: url(./fonts/Audiowide-Regular.ttf);
+}
+
+h1{
+    color: #2c3e50;
+    font-family: 'Audiowide', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 5rem;
+}
+
+.gekko-image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gekko{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Audiowide, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
