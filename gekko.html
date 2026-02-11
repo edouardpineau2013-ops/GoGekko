@@ -9,9 +9,11 @@
     <script src="gekko.js"></script>
 </head>
 <body>
+    <button id="retour" onclick="retour()">RETOUR</button>
     <h1>Le Gekko</h1>
+    <label for="nom">Votre nom et prénom :</label>
+    <input type="text" id="nom" placeholder="Nom et prénom...">
     <label for="longueur">Choisissez la longueur du Gekko :</label>
-    <br>
     <select name="Longueur" id="longueur" onchange="updateGekko()" class="longueur">
         <option value="8">8cm</option>
         <option value="10">10cm</option>
@@ -20,15 +22,18 @@
     </select>
     <br>
     <label for="quantite">Quantité :</label>
-    <br>
     <input type="number" id="quantite" name="quantite" min="1" value="1" onchange="updateGekko()">
     <br>
-    <input type="checkbox" id="assurance" onchange="updateGekko()">
-    <label for="assurance">Assurance (+1€)</label>
+    <label for="lieu">Lieu de livraison :</label>
+    <input type="text" id="lieu" placeholder="Adresse de livraison...">
+    <br>
+    <label for="dateLivraison">Date de livraison souhaitée :</label>
+    <input type="date" id="dateLivraison">
     <p id="prix">Prix: --€</p>
     <br>
     <div id="payment-element"></div>
     <button id="submit" onclick="handlePayment()">Payer maintenant</button>
+    <button id="order" onclick="placeOrder()">Commander</button>
     <div id="payment-message" class="hidden"></div>
 </body>
 </html>
