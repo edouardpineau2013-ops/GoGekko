@@ -2,7 +2,7 @@ let stripe;
 let elements;
 
 // Initialiser Stripe (Remplacez par votre clé publique Stripe)
-const stripePublicKey = "pk_test_YOUR_PUBLIC_KEY_HERE";
+const stripePublicKey = "pk_test_51Sy8qQJG4OMEsccffm1DQLUo4LOxg7pj80MGsX3JdktYHOlKsVvFhqryhA1YdNTyUPdK0fakOxjXICezxHktjbuM00ZMTQzZKG";
 
 function updateGekko() {
     const selectElement = document.getElementById("longueur");
@@ -105,3 +105,8 @@ function showMessage(messageText) {
     messageContainer.classList.remove("hidden");
     messageContainer.textContent = messageText;
 }
+
+function retour() {
+    window.location.href="./index.html";
+}
+
