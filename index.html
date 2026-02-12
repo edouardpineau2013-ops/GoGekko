@@ -8,6 +8,41 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <div id="nouvel_an_chinois">
+        <div id="evenement_texte">
+            <h2 id="evenement">NOUVEL AN CHINOIS</h2>
+            <h2 id="description">dragon articulé · figurine de dragon · etc…</h2>
+        </div>
+        <div id="countdown">Calcul en cours...</div>
+        <script>
+             // Date du Nouvel An chinois 2026 : 17 février 2026
+            const targetDate = new Date("2026-02-17T00:00:00");
+
+            const countdownEl = document.getElementById("countdown");
+
+            function updateCountdown() {
+                const now = new Date();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    countdownEl.textContent = "Bonne Année du Dragon ! 🐉🎉";
+                    clearInterval(interval);
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const mins = Math.floor((diff / (1000 * 60)) % 60);
+                const secs = Math.floor((diff / 1000) % 60);
+
+                countdownEl.textContent = 
+                    `${days} jours ${hours} h ${mins} min ${secs} sec`;
+            }
+
+            updateCountdown();
+            const interval = setInterval(updateCountdown, 1000);
+  </script>
+    </div>
     <h1>GoGekko</h1>
     <div class="gekko" onclick="GekkoLink()">
         <img src="./meta/images/1000001577.jpg" alt="Gekko" class="gekko-image">
