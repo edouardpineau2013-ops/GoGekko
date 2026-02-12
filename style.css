@@ -3,6 +3,55 @@
     src: url(./fonts/Audiowide-Regular.ttf);
 }
 
+#evenement {
+    font-size: 3rem;
+    color: #ffff00;
+    font-family: "Audiowide", sans-serif;
+    text-align: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+#description {
+    font-size: 2rem;
+    color: #ffff00;
+    margin-top: 10px;
+    font-family: "Audiowide", sans-serif;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+#nouvel_an_chinois {
+    background-color: #ff0000;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 20px;
+}
+
+#evenement_texte {
+    display: block;
+    margin-left: 180px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#countdown {
+    font-size: 48px;
+    margin-top: 15px;
+    margin-left: 80px;;
+    font-weight: bold;
+    color: #ff0000;
+    font-family: "Audiowide", sans-serif;
+    background-color: #ffff00;
+    padding: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    height: 60px;
+    width: 570px;
+}
+
+
 h1{
     color: #2c3e50;
     font-family: 'Audiowide', sans-serif;
