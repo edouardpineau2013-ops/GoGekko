@@ -1,112 +1,68 @@
-let stripe;
-let elements;
-
-// Initialiser Stripe (Remplacez par votre clé publique Stripe)
-const stripePublicKey = "pk_test_51Sy8qQJG4OMEsccffm1DQLUo4LOxg7pj80MGsX3JdktYHOlKsVvFhqryhA1YdNTyUPdK0fakOxjXICezxHktjbuM00ZMTQzZKG";
+const prixx = {
+    "8": 0.50,
+    "10": 0.70,
+    "13": 1.00,
+    "15": 1.50
+};
 
 function updateGekko() {
     const selectElement = document.getElementById("longueur");
     const quantiteElement = document.getElementById("quantite");
-    const assuranceElement = document.getElementById("assurance");
-    const selectedSize = selectElement.value;
-    const quantite = parseInt(quantiteElement.value) || 1;
-    const assurance = assuranceElement.checked ? 1.00 : 0;
-    const prix = document.getElementById("prix");
-    
-    const prices = {
-        "8": 0.30,
-        "10": 0.40,
-        "13": 0.70,
-        "15": 1.00
-    };
-    
-    if (prices[selectedSize]) {
-        const prixUnitaire = prices[selectedSize];
-        const prixSansAssurance = (prixUnitaire * quantite);
-        const prixTotal = (prixSansAssurance + assurance).toFixed(2);
-        
-        let detailAssurance = assurance > 0 ? ` + 1,00€ (assurance)` : '';
-        prix.innerHTML = `Prix : ${prixTotal.replace('.', ',')}€ (${prixUnitaire.toFixed(2).replace('.', ',')}€ × ${quantite}${detailAssurance})`;
+    const prixElement = document.getElementById("prix");
+
+    const longueur = selectElement.value;
+    const quantite = parseInt(quantiteElement.value);
+
+    if (prixx[longueur]) {
+        const prix = prixx[longueur] * quantite;
+        prixElement.textContent = `Prix total: ${prix.toFixed(2)}€ (${prixx[longueur].toFixed(2)} × ${quantite})`;
+    } else {
+        prixElement.textContent = "Prix total: 0.00€";
     }
-}
-
-// Initialiser Stripe au chargement de la page
-document.addEventListener('DOMContentLoaded', async function() {
-    stripe = Stripe(stripePublicKey);
-    elements = stripe.elements();
-    const paymentElement = elements.create("payment");
-    paymentElement.mount("#payment-element");
-    updateGekko();
-});
-
-// Fonction de paiement
-async function handlePayment() {
-    const selectElement = document.getElementById("longueur");
-    const quantiteElement = document.getElementById("quantite");
-    const assuranceElement = document.getElementById("assurance");
-    const selectedSize = selectElement.value;
-    const quantite = parseInt(quantiteElement.value) || 1;
-    const assurance = assuranceElement.checked ? 1.00 : 0;
-    
-    const prices = {
-        "8": 0.30,
-        "10": 0.40,
-        "13": 0.70,
-        "15": 1.00
-    };
-    
-    const prixUnitaire = prices[selectedSize];
-    const prixSansAssurance = (prixUnitaire * quantite);
-    const prixTotal = Math.round((prixSansAssurance + assurance) * 100); // Montant en centimes
-    
-    const submitBtn = document.getElementById("submit");
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Traitement...";
-    
-    try {
-        // Créer un PaymentIntent (vous devez avoir un backend pour cela)
-        const response = await fetch("/create-payment-intent", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                amount: prixTotal,
-                size: selectedSize,
-                quantity: quantite,
-                insurance: assurance
-            })
-        });
-        
-        const data = await response.json();
-        const clientSecret = data.clientSecret;
-        
-        // Confirmer le paiement
-        const result = await stripe.confirmPayment({
-            elements,
-            clientSecret,
-            confirmParams: {
-                return_url: window.location.href + "?success=true"
-            }
-        });
-        
-        if (result.error) {
-            showMessage(result.error.message);
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Payer maintenant";
-        }
-    } catch (error) {
-        showMessage("Erreur lors du paiement: " + error.message);
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Payer maintenant";
-    }
-}
-
-function showMessage(messageText) {
-    const messageContainer = document.querySelector("#payment-message");
-    messageContainer.classList.remove("hidden");
-    messageContainer.textContent = messageText;
 }
 
 function retour() {
     window.location.href="./index.html";
 }
+
+async function commander() {
+    const nom = document.getElementById("nom").value.trim();
+    const taille = document.getElementById("longueur").value;
+    const quantite = parseInt(document.getElementById("quantite").value);
+    const adresse = document.getElementById("lieu").value.trim();
+    const dateLivraison = document.getElementById("dateLivraison").value;
+
+    if (!nom || !adresse || !dateLivraison || quantite <= 0) {
+        alert("Merci de remplir tous les champs correctement.");
+        return;
+    }
+
+    try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwOhWDl79g7Grj8MWXVd2LhnHvBgsFmrvUBwmazMGARPBMc5OzGbeCQ9IToaqcZx9s/exec", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nom,
+                taille,
+                quantite,
+                adresse,
+                dateLivraison
+            })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            alert("Commande enregistrée avec succès 🐉");
+        } else {
+            alert("Erreur lors de l'enregistrement.");
+        }
+
+    } catch (error) {
+        alert("Erreur réseau : " + error.message);
+    }
+}
+
 
