@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Admin GoGekko</title>
+<link rel="shortcut icon" href="./meta/images/logo.png" type="image/x-icon">
+<style>
+body {
+  font-family: Arial;
+  padding: 30px;
+  background: #f4f4f4;
+}
+
+h1 {
+  color: #3CB371;
+}
+
+input, button {
+  padding: 8px;
+  margin: 5px 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  background: white;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #3CB371;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>Admin GoGekko 🐉</h1>
+
+<input type="password" id="key" placeholder="Mot de passe admin">
+<button onclick="loadOrders()">Charger les commandes</button>
+
+<div id="result"></div>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbwdj9CrLkHTnR2r7twmM91cCqEpLXxc4jUw_7tAZfPzHwiU1VJsnLIFzsnZEfPaHXk/exec";
+
+async function loadOrders() {
+  const key = document.getElementById("key").value;
+
+  const response = await fetch(API_URL + "?key=" + key);
+  const text = await response.text();
+
+  if (text === "Accès refusé") {
+    alert("Mot de passe incorrect");
+    return;
+  }
+
+  const data = JSON.parse(text);
+
+  let table = "<table><tr>";
+
+  data[0].forEach(header => {
+    table += "<th>" + header + "</th>";
+  });
+
+  table += "</tr>";
+
+  for (let i = 1; i < data.length; i++) {
+    table += "<tr>";
+    data[i].forEach(cell => {
+      table += "<td>" + cell + "</td>";
+    });
+    table += "</tr>";
+  }
+
+  table += "</table>";
+
+  document.getElementById("result").innerHTML = table;
+}
+</script>
+
+</body>
+</html>
