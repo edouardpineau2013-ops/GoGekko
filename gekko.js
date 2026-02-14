@@ -78,7 +78,6 @@ async function commander() {
     taille,
     quantite,
     adresse,
-    dateLivraison,
     email
   })
 });
@@ -98,4 +97,5 @@ alert(JSON.stringify(data));
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
