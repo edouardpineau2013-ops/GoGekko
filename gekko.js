@@ -5,6 +5,21 @@ const prixx = {
     "15": 1.50
 };
 
+const FRAIS_LIVRAISON = 1.50;
+
+function getPrixTotal() {
+    const selectElement = document.getElementById("longueur");
+    const quantiteElement = document.getElementById("quantite");
+    const longueur = selectElement.value;
+    const quantite = parseInt(quantiteElement.value) || 1;
+    
+    if (prixx[longueur]) {
+        const prixProduits = prixx[longueur] * quantite;
+        return prixProduits + FRAIS_LIVRAISON;
+    }
+    return FRAIS_LIVRAISON;
+}
+
 function updateGekko() {
     const selectElement = document.getElementById("longueur");
     const quantiteElement = document.getElementById("quantite");
@@ -14,10 +29,11 @@ function updateGekko() {
     const quantite = parseInt(quantiteElement.value);
 
     if (prixx[longueur]) {
-        const prix = prixx[longueur] * quantite;
-        prixElement.textContent = `Prix total: ${prix.toFixed(2)}€ (${prixx[longueur].toFixed(2)} × ${quantite})`;
+        const prixProduits = prixx[longueur] * quantite;
+        const prixTotal = prixProduits + FRAIS_LIVRAISON;
+        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite} + ${FRAIS_LIVRAISON.toFixed(2)}€ de livraison)`;
     } else {
-        prixElement.textContent = "Prix total: 0.00€";
+        prixElement.textContent = `Prix total: ${FRAIS_LIVRAISON.toFixed(2)}â‚¬ (frais de livraison)`;
     }
 }
 
@@ -26,43 +42,49 @@ function retour() {
 }
 
 async function commander() {
-    const nom = document.getElementById("nom").value.trim();
+    const nom = document.getElementById("nom").value;
     const taille = document.getElementById("longueur").value;
-    const quantite = parseInt(document.getElementById("quantite").value);
-    const adresse = document.getElementById("lieu").value.trim();
-    const dateLivraison = document.getElementById("dateLivraison").value;
+    const quantite = document.getElementById("quantite").value;
+    const adresse = document.getElementById("lieu").value;
+    const email = document.getElementById("email").value;
+    const cgv = document.getElementById("cgv").checked;
+    const type = "Gekko";
 
-    if (!nom || !adresse || !dateLivraison || quantite <= 0) {
-        alert("Merci de remplir tous les champs correctement.");
+    // Validation des champs
+    if (!nom || !email || !taille || !quantite || !adresse) {
+        alert("Veuillez remplir tous les champs obligatoires.");
         return;
     }
 
+    if (!cgv) {
+        alert("Veuillez accepter les conditions générales de vente.");
+        return;
+    }
+
+    const params = new URLSearchParams();
+    params.append("nom", nom);
+    params.append("taille", taille);
+    params.append("quantite", quantite);
+    params.append("adresse", adresse);
+    params.append("email", email);
+    params.append("type", type);
+
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwOhWDl79g7Grj8MWXVd2LhnHvBgsFmrvUBwmazMGARPBMc5OzGbeCQ9IToaqcZx9s/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwdj9CrLkHTnR2r7twmM91cCqEpLXxc4jUw_7tAZfPzHwiU1VJsnLIFzsnZEfPaHXk/exec", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nom,
-                taille,
-                quantite,
-                adresse,
-                dateLivraison
-            })
+            body: params
         });
 
-        const result = await response.json();
+        const text = await response.text();
+        console.log(text);
 
-        if (result.success) {
-            alert("Commande enregistrée avec succès 🐉");
-        } else {
-            alert("Erreur lors de l'enregistrement.");
-        }
+        alert("Commande enregistrée avec succès ! Vous pouvez maintenant procéder au paiement.");
+        
+        // Masquer le bouton Commander et afficher le bouton PayPal
+        document.getElementById("order").style.display = "none";
+        document.getElementById("paypal-button-container").style.display = "block";
 
     } catch (error) {
         alert("Erreur réseau : " + error.message);
     }
 }
-
-
