@@ -5,9 +5,9 @@ export default async function handler(req, res) {
 
   try {
     const params = new URLSearchParams();
-    Object.keys(req.body).forEach(key => {
+    for (const key in req.body) {
       params.append(key, req.body[key]);
-    });
+    }
 
     const googleResponse = await fetch("TON_URL_GOOGLE_SCRIPT", {
       method: "POST",
@@ -16,10 +16,17 @@ export default async function handler(req, res) {
 
     const text = await googleResponse.text();
 
-    return res.status(200).json({ success: true, google: text });
+    return res.status(200).json({
+      success: true,
+      googleStatus: googleResponse.status,
+      googleResponse: text
+    });
 
   } catch (error) {
-    console.error("Erreur serveur :", error);
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+      stack: error.stack
+    });
   }
 }
