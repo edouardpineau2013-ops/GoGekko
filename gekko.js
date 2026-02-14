@@ -70,13 +70,23 @@ async function commander() {
     params.append("type", type);
 
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwdj9CrLkHTnR2r7twmM91cCqEpLXxc4jUw_7tAZfPzHwiU1VJsnLIFzsnZEfPaHXk/exec", {
-            method: "POST",
-            body: params
-        });
+        const response = await fetch("/api/send-order", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    nom,
+    taille,
+    quantite,
+    adresse,
+    dateLivraison,
+    email
+  })
+});
 
-        const text = await response.text();
-        console.log(text);
+const data = await response.json();
+console.log(data);
+alert(JSON.stringify(data));
+
 
         alert("Commande enregistrée avec succès ! Vous pouvez maintenant procéder au paiement.");
         
@@ -88,3 +98,4 @@ async function commander() {
         alert("Erreur réseau : " + error.message);
     }
 }
+
