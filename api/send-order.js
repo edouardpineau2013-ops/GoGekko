@@ -4,16 +4,22 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwdj9CrLkHTnR2r7twmM91cCqEpLXxc4jUw_7tAZfPzHwiU1VJsnLIFzsnZEfPaHXk/exec", {
-      method: "POST",
-      body: new URLSearchParams(req.body)
+    const params = new URLSearchParams();
+    Object.keys(req.body).forEach(key => {
+      params.append(key, req.body[key]);
     });
 
-    const text = await response.text();
+    const googleResponse = await fetch("TON_URL_GOOGLE_SCRIPT", {
+      method: "POST",
+      body: params
+    });
 
-    res.status(200).json({ success: true, data: text });
+    const text = await googleResponse.text();
+
+    return res.status(200).json({ success: true, google: text });
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Erreur serveur :", error);
+    return res.status(500).json({ error: error.message });
   }
 }
