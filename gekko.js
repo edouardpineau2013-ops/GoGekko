@@ -7,6 +7,16 @@ const prixx = {
 
 const FRAIS_LIVRAISON = 1.50;
 
+function showModal(title, message) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalMessage").textContent = message;
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("overlay").classList.add("hidden");
+}
+
 function getPrixTotal() {
     const selectElement = document.getElementById("longueur");
     const quantiteElement = document.getElementById("quantite");
@@ -97,5 +107,6 @@ alert(JSON.stringify(data));
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
 
