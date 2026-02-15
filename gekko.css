@@ -22,7 +22,7 @@
 
 .modal h2 {
   margin-top: 0;
-  color: #3CB371;
+  color: #00;
 }
 
 .hidden {
@@ -161,4 +161,5 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
 
