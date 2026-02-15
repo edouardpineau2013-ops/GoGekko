@@ -88,7 +88,8 @@ async function commander() {
     taille,
     quantite,
     adresse,
-    email
+    email,
+    type
   })
 });
 
@@ -111,6 +112,7 @@ if (data.success) {
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
 
 
