@@ -94,10 +94,14 @@ async function commander() {
 
 const data = await response.json();
 console.log(data);
-alert(JSON.stringify(data));
+const messageDiv = document.getElementById("messageCommande");
 
+if (data.success) {
+  showModal("Commande envoyée 🐉", "Votre dragon est en préparation !");
+} else {
+  showModal("Erreur", "Une erreur est survenue. Réessayez.");
+}
 
-        alert("Commande enregistrée avec succès ! Vous pouvez maintenant procéder au paiement.");
         
         // Masquer le bouton Commander et afficher le bouton PayPal
         document.getElementById("order").style.display = "none";
@@ -107,6 +111,7 @@ alert(JSON.stringify(data));
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
 
 
