@@ -39,7 +39,8 @@
 #countdown {
     font-size: 48px;
     margin-top: 15px;
-    margin-left: 80px;;
+    margin-left: 80px;
+    margin-rigth: 40px;
     font-weight: bold;
     color: #ff0000;
     font-family: "Audiowide", sans-serif;
@@ -82,4 +83,5 @@ h1{
     text-align: center;
     font-size: 1.5rem;
 }
+
 
