@@ -17,7 +17,7 @@
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 5rem;
 }
 
 .modal {
@@ -170,6 +170,7 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
 
 
 
