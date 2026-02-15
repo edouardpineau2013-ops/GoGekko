@@ -112,12 +112,3 @@ if (data.success) {
         alert("Erreur réseau : " + error.message);
     }
 }
-
-
-
-
-
-
-
-
-
