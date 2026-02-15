@@ -98,7 +98,7 @@ console.log(data);
 const messageDiv = document.getElementById("messageCommande");
 
 if (data.success) {
-  showModal("Commande enregistré", "Un email de confirmation vous a été envoyé ! Vous pouvez procédez au paiement");
+  showModal("Commande enregistrée", "Un email de confirmation vous a été envoyé ! Vous pouvez procédez au paiement.");
 } else {
   showModal("Erreur", "Une erreur est survenue. Réessayez.");
 }
@@ -112,6 +112,7 @@ if (data.success) {
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
 
 
