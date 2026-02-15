@@ -47,8 +47,8 @@
     padding: 10px;
     padding-left: 10px;
     border-radius: 10px;
-    height: 60px;
-    width: 570px;
+    height: auto;
+    width: auto;
 }
 
 
@@ -82,3 +82,4 @@ h1{
     text-align: center;
     font-size: 1.5rem;
 }
+
