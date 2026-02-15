@@ -97,7 +97,7 @@ console.log(data);
 const messageDiv = document.getElementById("messageCommande");
 
 if (data.success) {
-  showModal("Commande envoyée 🐉", "Votre dragon est en préparation !");
+  showModal("Commande envoyée", "Votre gekko est en préparation !");
 } else {
   showModal("Erreur", "Une erreur est survenue. Réessayez.");
 }
@@ -111,6 +111,7 @@ if (data.success) {
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
 
 
