@@ -62,12 +62,12 @@ async function commander() {
 
     // Validation des champs
     if (!nom || !email || !taille || !quantite || !adresse) {
-        alert("Veuillez remplir tous les champs obligatoires.");
+        showModal("Veuillez remplir tout les champs obligatoires.");
         return;
     }
 
     if (!cgv) {
-        alert("Veuillez accepter les conditions générales de vente.");
+        showModal("Veuillez accepter les conditions générales de vente.");
         return;
     }
 
@@ -111,6 +111,7 @@ if (data.success) {
         alert("Erreur réseau : " + error.message);
     }
 }
+
 
 
 
