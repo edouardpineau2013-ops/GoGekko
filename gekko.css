@@ -1,3 +1,40 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  animation: pop 0.3s ease;
+}
+
+.modal h2 {
+  margin-top: 0;
+  color: #3CB371;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
 h1{
     color: #2c3e50;
     font-family: 'Audiowide', sans-serif;
@@ -124,3 +161,4 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
