@@ -40,8 +40,9 @@ function updateGekko() {
 
     if (prixx[longueur]) {
         const prixProduits = prixx[longueur] * quantite;
-        const prixTotal = prixProduits + FRAIS_LIVRAISON;
-        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite} + ${FRAIS_LIVRAISON.toFixed(2)}€ de livraison)`;
+        const prixSansTaxe = prixProduits + FRAIS_LIVRAISON;
+        const prixTotal = prixSansTaxe + 0.30 + (1.2/100 * prixSansTaxe);
+        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite} + ${FRAIS_LIVRAISON.toFixed(2)}€ de livraison + taxes paypal)`;
     } else {
         prixElement.textContent = `Prix total: ${FRAIS_LIVRAISON.toFixed(2)}â‚¬ (frais de livraison)`;
     }
@@ -112,3 +113,4 @@ if (data.success) {
         alert("Erreur réseau : " + error.message);
     }
 }
+
