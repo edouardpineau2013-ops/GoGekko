@@ -61,9 +61,16 @@ h1{
     font-size: 5rem;
 }
 
+.produits {
+    display: flex;
+    margin-top: 50px;
+    margin: auto;
+    justify-content: center;
+}
+
 .gekko-image {
     display: block;
-    margin: 0 auto;
+    margin-right: 20px;
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -73,7 +80,7 @@ h1{
 
 .gekko{
     display: block;
-    margin: 0 auto;
+    margin-right: 20px;
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -82,4 +89,84 @@ h1{
     font-family: Audiowide, sans-serif;
     text-align: center;
     font-size: 1.5rem;
+}
+
+.caméléon-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.caméléon {
+    display: block;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Audiowide, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* ===== RECHERCHE ===== */
+
+.search-container {
+    position: relative;
+    width: 300px;
+    margin: 30px auto;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
+    font-size: 1rem;
+}
+
+.suggestions {
+    position: absolute;
+    top: 110%;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-family: "Audiowide", sans-serif;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.suggestions.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.suggestions div:hover {
+    background: #f0f0f0;
+}
+
+/* Animation disparition produits */
+
+.produits > div {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.produits > div.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
 }
