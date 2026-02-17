@@ -59,7 +59,7 @@ async function commander() {
     const adresse = document.getElementById("lieu").value;
     const email = document.getElementById("email").value;
     const cgv = document.getElementById("cgv").checked;
-    const type = "Gekko";
+    const type = "gekko";
 
     // Validation des champs
     if (!nom || !email || !taille || !quantite || !adresse) {
@@ -112,4 +112,5 @@ if (data.success) {
     } catch (error) {
         alert("Erreur réseau : " + error.message);
     }
+
 }
