@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="nouvel_an_chinois">
@@ -46,14 +46,25 @@
   </script>
     </div>
     <h1>GoGekko</h1>
-    <div class="gekko" onclick="GekkoLink()">
-        <img src="./meta/images/1000001577.jpg" alt="Gekko" class="gekko-image">
-        <img src="./meta/images/1000001578.jpg" alt="Gekko" class="gekko-image">
-        <img src="./meta/images/1000001579.jpg" alt="Gekko" class="gekko-image">
-        <p>Le Gekko</p>
+    <!-- BARRE DE RECHERCHE -->
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Rechercher un animal...">
+        <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <div class="produits">
+        <div class="gekko" onclick="GekkoLink()">
+            <img src="./meta/images/photo-gekko.jpg" alt="Gekko" class="gekko-image">
+            <p>Le Gekko</p>
+        </div>
+        <div class="caméléon" onclick="CaméléonLink()">
+            <img src="./meta/images/photo-cameleon.jpg" alt="Caméléon" class="caméléon-image">
+            <p>Le Caméléon</p>
+        </div>
     </div>
 </body>
 </html>
+
 
 
 
