@@ -1,33 +1,84 @@
-let currentIndex = 0;
-let carouselInterval;
-
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.gekko-image');
-    const gekkoContainer = document.querySelector('.gekko');
-    
-    // Masquer toutes les images sauf la première
-    images.forEach((img, index) => {
-        img.style.display = index === 0 ? 'block' : 'none';
-    });
-    
-    // Au survol de la souris
-    gekkoContainer.addEventListener('mouseenter', function() {
-        carouselInterval = setInterval(function() {
-            images[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].style.display = 'block';
-        }, 3000);
-    });
-    
-    // Quand la souris quitte
-    gekkoContainer.addEventListener('mouseleave', function() {
-        clearInterval(carouselInterval);
-        images[currentIndex].style.display = 'none';
-        currentIndex = 0;
-        images[0].style.display = 'block';
-    });
-});
-
 function GekkoLink() {
-    window.location.href = './gekko.html';
+    window.location.href = './animaux/gekko/gekko.html';
 }
+
+function CaméléonLink() {
+    window.location.href = './animaux/cameleon/cameleon.html';
+}
+
+//Barre de recherche
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const animals = [
+        { 
+            name: "gekko", 
+            link: "./animaux/gekko/gekko.html",
+            element: document.querySelector(".gekko")
+        },
+        { 
+            name: "caméléon", 
+            link: "./animaux/cameleon/cameleon.html",
+            element: document.querySelector(".caméléon")
+        }
+    ];
+
+    const searchBar = document.getElementById("searchBar");
+    const suggestionsBox = document.getElementById("suggestions");
+
+    function normalizeText(text) {
+        return text.toLowerCase()
+                   .normalize("NFD")
+                   .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    searchBar.addEventListener("input", function() {
+
+        const value = normalizeText(this.value);
+        suggestionsBox.innerHTML = "";
+
+        animals.forEach(animal => {
+            const match = normalizeText(animal.name).includes(value);
+
+            if (value === "" || match) {
+                animal.element.classList.remove("hidden");
+            } else {
+                animal.element.classList.add("hidden");
+            }
+        });
+
+        if (!value) {
+            suggestionsBox.classList.remove("active");
+            return;
+        }
+
+        const results = animals.filter(a =>
+            normalizeText(a.name).includes(value)
+        );
+
+        if (results.length === 0) {
+            suggestionsBox.classList.remove("active");
+            return;
+        }
+
+        results.forEach(a => {
+            const div = document.createElement("div");
+            div.textContent = a.name;
+
+            div.addEventListener("click", function() {
+                window.location.href = a.link;
+            });
+
+            suggestionsBox.appendChild(div);
+        });
+
+        suggestionsBox.classList.add("active");
+    });
+
+    document.addEventListener("click", function(e) {
+        if (!e.target.closest(".search-container")) {
+            suggestionsBox.classList.remove("active");
+        }
+    });
+
+});
