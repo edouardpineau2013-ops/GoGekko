@@ -43,6 +43,10 @@
   to { transform: scale(1); opacity: 1; }
 }
 
+.loading-gif {
+  margin: auto;
+  width: 50px;
+}
 
 h1{
     color: #2c3e50;
@@ -169,4 +173,5 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+
 }
