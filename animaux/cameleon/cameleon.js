@@ -111,7 +111,7 @@ if (data.success) {
 
         
         // Masquer le bouton Commander et afficher le bouton PayPal
-        document.getElementById("order").style.display = "none";
+        document.querySelector(".loading-gif").style.display = "none";
         document.getElementById("paypal-button-container").style.display = "block";
 
     } catch (error) {
@@ -119,4 +119,5 @@ if (data.success) {
     }
 
 }
+
 
