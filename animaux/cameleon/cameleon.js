@@ -72,6 +72,11 @@ async function commander() {
         return;
     }
 
+    const commanderButton = document.getElementById("order");
+    const loadingGif = document.querySelector(".loading-gif");
+    commanderButton.style.display = "none";
+    loadingGif.style.display = "block";
+
     const params = new URLSearchParams();
     params.append("nom", nom);
     params.append("taille", taille);
@@ -114,3 +119,4 @@ if (data.success) {
     }
 
 }
+
