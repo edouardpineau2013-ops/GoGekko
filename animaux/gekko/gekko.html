@@ -53,6 +53,7 @@
         paypal.Buttons({
             createOrder: function(data, actions) {
                 const prixTotal = getPrixTotal();
+                console.log("Prix total pour PayPal: ", prixTotal);
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
@@ -79,4 +80,5 @@
 </body>
 
 </html>
+
 
