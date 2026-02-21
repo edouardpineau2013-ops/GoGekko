@@ -52,7 +52,7 @@
     <script>
         paypal.Buttons({
             createOrder: function(data, actions) {
-                const prixTotal = getPrixTotal();
+                const prixTotal = getPrixTotal()  + 0.30 + (1.2/100 * getPrixTotal());
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
@@ -79,4 +79,5 @@
 </body>
 
 </html>
+
 
