@@ -20,6 +20,21 @@ document.addEventListener("DOMContentLoaded", function() {
             name: "caméléon", 
             link: "./animaux/cameleon/cameleon.html",
             element: document.querySelector(".caméléon")
+        },
+        { 
+            name: "poulpe", 
+            link: "./animaux/poulpe/poulpe.html",
+            element: document.querySelector(".poulpe")
+        },
+        { 
+            name: "requin",
+            link: "./animaux/requin/requin.html",
+            element: document.querySelector(".requin")
+        },
+        { 
+            name: "serpent",
+            link: "./animaux/serpent/serpent.html",
+            element: document.querySelector(".serpent")
         }
     ];
 

@@ -113,6 +113,73 @@ h1{
     font-size: 1.5rem;
 }
 
+.poulpe-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.poulpe {
+    display: block;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Audiowide, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.requin-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.requin {
+    display: block;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Audiowide, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.serpent-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.serpent {
+    display: block;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Audiowide, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
 /* ===== RECHERCHE ===== */
 
 .search-container {
@@ -170,4 +237,3 @@ h1{
     transform: scale(0.9);
     pointer-events: none;
 }
-
