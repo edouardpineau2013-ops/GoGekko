@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le gekko</title>
+    <title>Le poulpe</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-    <link rel="stylesheet" href="gekko.css">
+    <link rel="stylesheet" href="poulpe.css">
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="gekko.js"></script>
+    <script src="poulpe.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AVLjwTI6pL1AZIO4BHfhLkfRn7vADy6VHwtla70eTHdwW7Rvv39v7XVlj5A3XRZghGBmEugLCTGGcln2&currency=EUR"></script>
 </head>
     <div id="overlay" class="overlay hidden">
@@ -21,16 +21,16 @@
 
 <body>
     <button id="retour" onclick="retour()">RETOUR</button>
-    <h1>Le gekko</h1>
+    <h1>Le poulpe</h1>
     <button id="btnGalerie" onclick="toggleGalerie()">
         Voir les images
     </button>
     <div id="galerieSection" class="galerie-container">
         <div class="galerie">
-            <img src="/meta/images/gekko/photo-gekko-decor.png" onclick="openLightbox(0)">
-            <img src="/meta/images/gekko/photo-gekko-01.jpg" onclick="openLightbox(1)">
-            <img src="/meta/images/gekko/photo-gekko-02.jpg" onclick="openLightbox(2)">
-            <img src="/meta/images/gekko/photo-gekko-03.jpg" onclick="openLightbox(3)">
+            <img src="/meta/images/poulpe/photo-poulpe-decor.png" onclick="openLightbox(0)">
+            <img src="/meta/images/poulpe/photo-poulpe-01.jpg" onclick="openLightbox(1)">
+            <img src="/meta/images/poulpe/photo-poulpe-02.jpg" onclick="openLightbox(2)">
+            <img src="/meta/images/poulpe/photo-poulpe-03.jpg" onclick="openLightbox(3)">
         </div>
     </div>
     <!-- LIGHTBOX -->
@@ -44,12 +44,12 @@
     <input type="text" id="nom" placeholder="Nom et prénom...">
     <label for="email">Votre email :</label>
     <input type="email" id="email" placeholder="Email...">
-    <label for="longueur">Choisissez la longueur du gekko :</label>
+    <label for="longueur">Choisissez la hauteur du poulpe :</label>
     <select name="Longueur" id="longueur" onchange="updateGekko()" class="longueur">
-        <option value="8">8cm</option>
-        <option value="10">10cm</option>
-        <option value="13">13cm</option>
-        <option value="15">15cm</option>
+        <option value="1.5">1,5cm</option>
+        <option value="2">2cm</option>
+        <option value="3">3cm</option>
+        <option value="5">5cm</option>
     </select>
     <br>
     <label for="quantite">Quantitée :</label>
