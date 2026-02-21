@@ -6,6 +6,18 @@ function CaméléonLink() {
     window.location.href = './animaux/cameleon/cameleon.html';
 }
 
+function PoulpeLink() {
+    window.location.href = './animaux/poulpe/poulpe.html';
+}
+
+function RequinLink() {
+    window.location.href = './animaux/requin/requin.html';
+}
+
+function SerpentLink() {
+    window.location.href = './animaux/serpent/serpent.html';
+}
+
 //Barre de recherche
 
 document.addEventListener("DOMContentLoaded", function() {
