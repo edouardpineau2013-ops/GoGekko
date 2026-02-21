@@ -5,6 +5,46 @@ const prixx = {
     "15": 1.60
 };
 
+let currentIndex = 0;
+const images = [
+  "/meta/images/cameleon/photo-cameleon-decor.png",
+  "/meta/images/cameleon/photo-cameleon-01.jpg",
+  "/meta/images/cameleon/photo-cameleon-02.jpg",
+  "/meta/images/cameleon/photo-cameleon-03.jpg"
+];
+
+function toggleGalerie() {
+  const section = document.getElementById("galerieSection");
+  const btn = document.getElementById("btnGalerie");
+
+  section.classList.toggle("active");
+
+  if (section.classList.contains("active")) {
+    btn.innerText = "Masquer la galerie";
+  } else {
+    btn.innerText = "Voir la galerie";
+  }
+}
+
+function openLightbox(index) {
+  currentIndex = index;
+  document.getElementById("lightbox-img").src = images[currentIndex];
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function changeImage(direction) {
+  currentIndex += direction;
+
+  if (currentIndex < 0) currentIndex = images.length - 1;
+  if (currentIndex >= images.length) currentIndex = 0;
+
+  document.getElementById("lightbox-img").src = images[currentIndex];
+}
+
 const FRAIS_LIVRAISON = 1.50;
 
 function showModal(title, message) {
@@ -72,11 +112,6 @@ async function commander() {
         return;
     }
 
-    const commanderButton = document.getElementById("order");
-    const loadingGif = document.querySelector(".loading-gif");
-    commanderButton.style.display = "none";
-    loadingGif.style.display = "block";
-
     const params = new URLSearchParams();
     params.append("nom", nom);
     params.append("taille", taille);
@@ -111,13 +146,10 @@ if (data.success) {
 
         
         // Masquer le bouton Commander et afficher le bouton PayPal
-        document.querySelector(".loading-gif").style.display = "none";
+        document.getElementById("order").style.display = "none";
         document.getElementById("paypal-button-container").style.display = "block";
 
     } catch (error) {
         alert("Erreur réseau : " + error.message);
     }
-
 }
-
-

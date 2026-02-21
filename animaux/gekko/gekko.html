@@ -22,6 +22,24 @@
 <body>
     <button id="retour" onclick="retour()">RETOUR</button>
     <h1>Le Gekko</h1>
+    <button id="btnGalerie" onclick="toggleGalerie()">
+        Voir les images
+    </button>
+    <div id="galerieSection" class="galerie-container">
+        <div class="galerie">
+            <img src="/meta/images/gekko/photo-gekko-decor.png" onclick="openLightbox(0)">
+            <img src="/meta/images/gekko/photo-gekko-01.jpg" onclick="openLightbox(1)">
+            <img src="/meta/images/gekko/photo-gekko-02.jpg" onclick="openLightbox(2)">
+            <img src="/meta/images/gekko/photo-gekko-03.jpg" onclick="openLightbox(3)">
+        </div>
+    </div>
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <span class="close" onclick="closeLightbox()">✕</span>
+        <span class="nav prev" onclick="changeImage(-1)">❮</span>
+        <img id="lightbox-img">
+        <span class="nav next" onclick="changeImage(1)">❯</span>
+    </div>
     <label for="nom">Votre nom et prénom :</label>
     <input type="text" id="nom" placeholder="Nom et prénom...">
     <label for="email">Votre email :</label>
@@ -48,12 +66,12 @@
     <div id="payment-element"></div>
     <button id="order" onclick="commander()">Commander</button>
     <img src="/meta/images/cercleDeChargement.gif" alt="Chargement..." class="loading-gif" style="display: none;">
+     
     <div id="paypal-button-container" style="display: none;"></div>
     <script>
         paypal.Buttons({
             createOrder: function(data, actions) {
                 const prixTotal = getPrixTotal()  + 0.30 + (1.2/100 * getPrixTotal());
-                console.log("Prix total pour PayPal: ", prixTotal);
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
@@ -78,8 +96,4 @@
 </body>
 </html>
 </body>
-
 </html>
-
-
-

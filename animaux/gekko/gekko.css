@@ -56,6 +56,94 @@ h1{
     font-size: 5rem;
 }
 
+#btnGalerie {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background: #000000;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+#btnGalerie:hover {
+  background: #666666;
+}
+
+/* Galerie cachée au départ */
+.galerie-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.galerie-container.active {
+  max-height: 1000px;
+  margin-top: 30px;
+}
+
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.galerie img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.galerie img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* LIGHTBOX */
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#lightbox img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+.prev { left: 40px; }
+.next { right: 40px; }
+
+
 body {
     font-family: Arial, sans-serif;
     max-width: 600px;
@@ -173,5 +261,4 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
-
 }
