@@ -56,6 +56,13 @@ h1{
     font-size: 5rem;
 }
 
+#seo-text {
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 1rem;
+}
+
 #btnGalerie {
   padding: 12px 25px;
   border-radius: 30px;

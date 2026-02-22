@@ -61,6 +61,13 @@ h1{
     font-size: 5rem;
 }
 
+#seo-text {
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 1rem;
+}
+
 .produits {
     display: flex;
     margin-top: 50px;
@@ -179,6 +186,19 @@ h1{
     font-size: 1.5rem;
 }
 
+#filtre-container {
+    text-align: center;
+    margin-top: 20px;
+    font-family: "Audiowide", sans-serif;
+    font-size: 1.5rem;
+}
+
+#filtre {
+    padding: 3px;
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
+    font-size: 1rem;
+}
 
 /* ===== RECHERCHE ===== */
 
