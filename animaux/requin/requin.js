@@ -9,7 +9,7 @@ const FRAIS_LIVRAISON = 1.50;
 
 let currentIndex = 0;
 const images = [
-  "/meta/images/requin/photo-requin-decor.png",
+  "/meta/images/requin/photo-requin-decor.jpg",
   "/meta/images/requin/photo-requin-01.jpg",
   "/meta/images/requin/photo-requin-02.jpg",
   "/meta/images/requin/photo-requin-03.jpg"

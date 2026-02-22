@@ -7,7 +7,7 @@ const prixx = {
 
 let currentIndex = 0;
 const images = [
-  "/meta/images/cameleon/photo-cameleon-decor.png",
+  "/meta/images/cameleon/photo-cameleon-decor.jpg",
   "/meta/images/cameleon/photo-cameleon-01.jpg",
   "/meta/images/cameleon/photo-cameleon-02.jpg",
   "/meta/images/cameleon/photo-cameleon-03.jpg"

@@ -9,7 +9,7 @@ const FRAIS_LIVRAISON = 1.50;
 
 let currentIndex = 0;
 const images = [
-  "/meta/images/serpent/photo-serpent-decor.png",
+  "/meta/images/serpent/photo-serpent-decor.jpg",
   "/meta/images/serpent/photo-serpent-01.jpg",
   "/meta/images/serpent/photo-serpent-02.jpg",
   "/meta/images/serpent/photo-serpent-03.jpg"

@@ -9,7 +9,7 @@ const FRAIS_LIVRAISON = 1.50;
 
 let currentIndex = 0;
 const images = [
-  "/meta/images/poulpe/photo-poulpe-decor.png",
+  "/meta/images/poulpe/photo-poulpe-decor.jpg",
   "/meta/images/poulpe/photo-poulpe-01.jpg",
   "/meta/images/poulpe/photo-poulpe-02.jpg",
   "/meta/images/poulpe/photo-poulpe-03.jpg"

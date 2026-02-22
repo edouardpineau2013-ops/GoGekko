@@ -9,7 +9,7 @@ const FRAIS_LIVRAISON = 1.50;
 
 let currentIndex = 0;
 const images = [
-  "/meta/images/gekko/photo-gekko-decor.png",
+  "/meta/images/gekko/photo-gekko-decor.jpg",
   "/meta/images/gekko/photo-gekko-01.jpg",
   "/meta/images/gekko/photo-gekko-02.jpg",
   "/meta/images/gekko/photo-gekko-03.jpg"
