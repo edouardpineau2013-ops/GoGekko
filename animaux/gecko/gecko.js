@@ -1,16 +1,18 @@
 const prixx = {
-    "8": 0.60,
-    "10": 0.80,
-    "13": 1.10,
-    "15": 1.60
+    "8": 0.50,
+    "10": 0.70,
+    "13": 1.00,
+    "15": 1.50
 };
+
+const FRAIS_LIVRAISON = 1.50;
 
 let currentIndex = 0;
 const images = [
-  "/meta/images/cameleon/photo-cameleon-decor.jpg",
-  "/meta/images/cameleon/photo-cameleon-01.jpg",
-  "/meta/images/cameleon/photo-cameleon-02.jpg",
-  "/meta/images/cameleon/photo-cameleon-03.jpg"
+  "/meta/images/gecko/photo-gecko-decor.jpg",
+  "/meta/images/gecko/photo-gecko-01.jpg",
+  "/meta/images/gecko/photo-gecko-02.jpg",
+  "/meta/images/gecko/photo-gecko-03.jpg"
 ];
 
 function toggleGalerie() {
@@ -45,8 +47,6 @@ function changeImage(direction) {
   document.getElementById("lightbox-img").src = images[currentIndex];
 }
 
-const FRAIS_LIVRAISON = 1.50;
-
 function showModal(title, message) {
   document.getElementById("modalTitle").textContent = title;
   document.getElementById("modalMessage").textContent = message;
@@ -70,7 +70,7 @@ function getPrixTotal() {
     return FRAIS_LIVRAISON;
 }
 
-function updateCameleon() {
+function updateGecko() {
     const selectElement = document.getElementById("longueur");
     const quantiteElement = document.getElementById("quantite");
     const prixElement = document.getElementById("prix");
@@ -89,7 +89,7 @@ function updateCameleon() {
 }
 
 function retour() {
-    window.location.href="/index.html";
+    document.location.href="/index.html";
 }
 
 async function commander() {
@@ -99,7 +99,7 @@ async function commander() {
     const adresse = document.getElementById("lieu").value;
     const email = document.getElementById("email").value;
     const cgv = document.getElementById("cgv").checked;
-    const type = "cameleon";
+    const type = "gecko";
 
     // Validation des champs
     if (!nom || !email || !taille || !quantite || !adresse) {
@@ -111,6 +111,11 @@ async function commander() {
         showModal("Veuillez accepter les conditions générales de vente.");
         return;
     }
+    
+    const commanderButton = document.getElementById("order");
+    const loadingGif = document.querySelector(".loading-gif");
+    commanderButton.style.display = "none";
+    loadingGif.style.display = "block";
 
     const params = new URLSearchParams();
     params.append("nom", nom);
@@ -146,7 +151,7 @@ if (data.success) {
 
         
         // Masquer le bouton Commander et afficher le bouton PayPal
-        document.getElementById("order").style.display = "none";
+        document.querySelector(".loading-gif").style.display = "none";
         document.getElementById("paypal-button-container").style.display = "block";
 
     } catch (error) {

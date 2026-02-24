@@ -70,7 +70,7 @@ function getPrixTotal() {
     return FRAIS_LIVRAISON;
 }
 
-function updateGekko() {
+function updateRequin() {
     const selectElement = document.getElementById("longueur");
     const quantiteElement = document.getElementById("quantite");
     const prixElement = document.getElementById("prix");

@@ -36,10 +36,10 @@
     </button>
     <div id="galerieSection" class="galerie-container">
         <div class="galerie">
-            <img src="/meta/images/cameleon/photo-cameleon-decor.jpg" loading="lazy" onclick="openLightbox(0)">
-            <img src="/meta/images/cameleon/photo-cameleon-01.jpg" loading="lazy" onclick="openLightbox(1)">
-            <img src="/meta/images/cameleon/photo-cameleon-02.jpg" loading="lazy" onclick="openLightbox(2)">
-            <img src="/meta/images/cameleon/photo-cameleon-03.jpg" loading="lazy" onclick="openLightbox(3)">
+            <img src="/meta/images/cameleon/photo-cameleon-decor.jpg" alt="Caméléon articulé 3d" loading="lazy" onclick="openLightbox(0)">
+            <img src="/meta/images/cameleon/photo-cameleon-01.jpg" alt="Caméléon articulé 3d" loading="lazy" onclick="openLightbox(1)">
+            <img src="/meta/images/cameleon/photo-cameleon-02.jpg" alt="Caméléon articulé 3d" loading="lazy" onclick="openLightbox(2)">
+            <img src="/meta/images/cameleon/photo-cameleon-03.jpg" alt="Caméléon articulé 3d" loading="lazy" onclick="openLightbox(3)">
         </div>
     </div>
     <!-- LIGHTBOX -->
@@ -54,7 +54,7 @@
     <label for="email">Votre email :</label>
     <input type="email" id="email" placeholder="Email...">
     <label for="longueur">Choisissez la longueur du caméléon :</label>
-    <select name="Longueur" id="longueur" onchange="updateGekko()" class="longueur">
+    <select name="Longueur" id="longueur" onchange="updateCameleon()" class="longueur">
         <option value="8">8cm</option>
         <option value="10">10cm</option>
         <option value="13">13cm</option>
@@ -62,7 +62,7 @@
     </select>
     <br>
     <label for="quantite">Quantitée :</label>
-    <input type="number" id="quantite" name="quantite" min="1" value="1" onchange="updateGekko()">
+    <input type="number" id="quantite" name="quantite" min="1" value="1" onchange="updateCameleon()">
     <br>
     <label for="lieu">Adresse de livraison :</label>
     <input type="text" id="lieu" placeholder="Adresse de livraison...">

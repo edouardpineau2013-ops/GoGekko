@@ -1,5 +1,5 @@
 function GekkoLink() {
-    window.location.href = './animaux/gekko/gekko.html';
+    window.location.href = './animaux/gecko/gecko.html';
 }
 
 function CaméléonLink() {
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const animals = [
         { 
-            name: "gekko", 
-            link: "./animaux/gekko/gekko.html",
+            name: "gecko", 
+            link: "./animaux/gecko/gecko.html",
             element: document.querySelector(".gekko")
         },
         { 
