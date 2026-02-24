@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { 
             name: "gecko", 
             link: "./animaux/gecko/gecko.html",
-            element: document.querySelector(".gekko")
+            element: document.querySelector(".gecko")
         },
         { 
             name: "caméléon", 
@@ -109,4 +109,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
 
