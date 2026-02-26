@@ -1,4 +1,4 @@
-function GeckoLink() {
+function GekkoLink() {
     window.location.href = './animaux/gecko/gecko.html';
 }
 
@@ -16,6 +16,10 @@ function RequinLink() {
 
 function SerpentLink() {
     window.location.href = './animaux/serpent/serpent.html';
+}
+
+function DragonLink() {
+    window.location.href = './animaux/dragon/dragon.html';
 }
 
 //Barre de recherche
@@ -47,6 +51,11 @@ document.addEventListener("DOMContentLoaded", function() {
             name: "serpent",
             link: "./animaux/serpent/serpent.html",
             element: document.querySelector(".serpent")
+        },
+        { 
+            name: "dragon",
+            link: "./animaux/dragon/dragon.html",
+            element: document.querySelector(".dragon")
         }
     ];
 
@@ -109,5 +118,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-
-
