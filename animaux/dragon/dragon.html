@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon articulé imprimé en 3D | GoGekko</title>
+    <meta name="description" content="Découvrez le dragon articulé imprimé en 3D. Fabrication sur commande. Livraison par lettre.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="stylesheet" href="dragon.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="dragon.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVLjwTI6pL1AZIO4BHfhLkfRn7vADy6VHwtla70eTHdwW7Rvv39v7XVlj5A3XRZghGBmEugLCTGGcln2&currency=EUR"></script>
+</head>
+    <div id="overlay" class="overlay hidden">
+  <div class="modal">
+    <h2 id="modalTitle"></h2>
+    <p id="modalMessage"></p>
+    <button onclick="closeModal()" id="fermer">Fermer</button>
+  </div>
+    </div>
+
+<body>
+    <button id="retour" onclick="retour()">RETOUR</button>
+    <h1>Le dragon</h1>
+    <section id="seo-text">
+        <h2>Dragon articulé imprimé en 3D</h2>
+        <p>
+        Ce dragon articulé est imprimé en 3D.
+        Chaque pièce est fabriquée sur commande.
+        Idéal comme décoration ou idée cadeau originale.
+        </p>
+    </section>
+    <button id="btnGalerie" onclick="toggleGalerie()">
+        Voir les images
+    </button>
+    <div id="galerieSection" class="galerie-container">
+        <div class="galerie">
+            <img src="/meta/images/dragon/photo-dragon-decor.jpg" alt="Dragon articulé 3d" loading="lazy" onclick="openLightbox(0)">
+            <img src="/meta/images/dragon/photo-dragon-01.jpg" alt="Dragon articulé 3d" loading="lazy" onclick="openLightbox(1)">
+            <img src="/meta/images/dragon/photo-dragon-02.jpg" alt="Dragon articulé 3d" loading="lazy" onclick="openLightbox(2)">
+            <img src="/meta/images/dragon/photo-dragon-03.jpg" alt="Dragon articulé 3d" loading="lazy" onclick="openLightbox(3)">
+        </div>
+    </div>
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <span class="close" onclick="closeLightbox()">✕</span>
+        <span class="nav prev" onclick="changeImage(-1)">❮</span>
+        <img id="lightbox-img">
+        <span class="nav next" onclick="changeImage(1)">❯</span>
+    </div>
+    <label for="nom">Votre nom et prénom :</label>
+    <input type="text" id="nom" placeholder="Nom et prénom...">
+    <label for="email">Votre email :</label>
+    <input type="email" id="email" placeholder="Email...">
+    <label for="longueur">Choisissez la longueur du dragon :</label>
+    <select name="Longueur" id="longueur" onchange="updateDragon()" class="longueur">
+        <option value="8">8cm</option>
+        <option value="10">10cm</option>
+        <option value="13">13cm</option>
+        <option value="15">15cm</option>
+    </select>
+    <br>
+    <label for="quantite">Quantitée :</label>
+    <input type="number" id="quantite" name="quantite" min="1" value="1" onchange="updateDragon()">
+    <br>
+    <label for="lieu">Adresse de livraison :</label>
+    <input type="text" id="lieu" placeholder="Adresse de livraison...">
+    <p id="prix">Prix total: --€</p>
+    <div id="cgv-div">
+        <input type="checkbox" name="cgv" id="cgv">
+        <label for="cgv" id="cgv_label">J'ai lu et j'accepte <a href="/cgv.html">les conditions générales de vente</a></label>
+    </div>
+    <br>
+    <div id="payment-element"></div>
+    <button id="order" onclick="commander()">Commander</button>
+    <div id="paypal-button-container" style="display: none;"></div>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                const prixTotal = getPrixTotal()  + 0.30 + (1.2/100 * getPrixTotal());
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: prixTotal.toFixed(2),
+                            currency_code: "EUR"
+                        }
+                    }]    
+                });
+            },
+            onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert("Paiement effectué avec succès ! Merci " + details.payer.name.given_name + " pour votre commande.");
+                        window.location.href = "./index.html";
+                    });
+            },
+            onError: function(err) {
+                console.error("Payment error: ", err);
+                alert("Une erreur est survenue lors du paiement.");
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
+</body>
+</html>
