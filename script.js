@@ -1,4 +1,4 @@
-function GekkoLink() {
+function GeckoLink() {
     window.location.href = './animaux/gecko/gecko.html';
 }
 
@@ -118,3 +118,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
