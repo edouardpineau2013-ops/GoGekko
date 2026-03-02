@@ -22,6 +22,10 @@ function DragonLink() {
     window.location.href = './animaux/dragon/dragon.html';
 }
 
+function HippocampeLink() {
+    window.location.href = './animaux/hippocampe/hippocampe.html';
+}
+
 //Barre de recherche
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -56,6 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
             name: "dragon",
             link: "./animaux/dragon/dragon.html",
             element: document.querySelector(".dragon")
+        },
+        { 
+            name: "hippocampe",
+            link: "./animaux/hippocampe/hippocampe.html",
+            element: document.querySelector(".hippocampe")
         }
     ];
 
@@ -118,4 +127,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-

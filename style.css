@@ -68,10 +68,18 @@ h1{
     font-size: 1rem;
 }
 
-.produits {
+.produitsLN1 {
     display: flex;
     margin-top: 50px;
     margin: auto;
+    justify-content: center;
+}
+
+.produitsLN2 {
+    display: flex;
+    margin-top: 75px;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
 }
 
@@ -208,6 +216,29 @@ h1{
     font-size: 1.5rem;
 }
 
+.hippocampe-image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hippocampe {
+    display: block;
+    margin-left: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Audiowide, sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+
 #filtre-container {
     text-align: center;
     margin-top: 20px;
@@ -270,11 +301,11 @@ h1{
 
 /* Animation disparition produits */
 
-.produits > div {
+.produitsLN1 > div, .produitsLN2 > div {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.produits > div.hidden {
+.produitsLN1 > div.hidden, .produitsLN2 > div.hidden {
     opacity: 0;
     transform: scale(0.9);
     pointer-events: none;
