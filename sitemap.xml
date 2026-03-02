@@ -13,6 +13,12 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://gogekko.fr/animaux/gekko/gekko.html</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://gogekko.fr/animaux/gecko/gecko.html</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -38,6 +44,18 @@
   </url>
   <url>
     <loc>https://gogekko.fr/animaux/poulpe/poulpe.html</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gogekko.fr/animaux/dragon/dragon.html</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gogekko.fr/animaux/hippocampe/hippocampe.html</loc>
     <lastmod>2026-02-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
