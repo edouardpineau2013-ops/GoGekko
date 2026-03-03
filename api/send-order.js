@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       params.append(key, req.body[key]);
     }
 
-    const googleResponse = await fetch("https://script.google.com/macros/s/AKfycbwjArdDvhXO-uVUCl1BbzK4Eul9NmUL57Yfqv4qTfl3fEp-DxMiLNUO9-2ZLxXe3kg/exec", {
+    const googleResponse = await fetch("https://script.google.com/macros/s/AKfycbzcFC_L9PUyCSDJTYflhE4356YL9tOjEu3NlAv9HIuU4HuATxSZCQYpoIF-S223ykc/exec", {
       method: "POST",
       body: params
     });
