@@ -92,8 +92,26 @@
             },
             onApprove: function(data, actions) {
                     return actions.order.capture().then(function(details) {
-                        alert("Paiement effectué avec succès ! Merci " + details.payer.name.given_name + " pour votre commande.");
-                        window.location.href = "./index.html";
+                        return fetch("/api/send-order", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                action: "paiement",
+                                nom: document.getElementById("nom").value,
+                                email: document.getElementById("email").value,
+                                type: "requin"
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(response => {
+
+                            console.log("Réponse API :", response);
+
+                            alert("Paiement effectué avec succès ! Merci " + details.payer.name.given_name + " pour votre commande.");
+                            window.location.href = "./index.html";
+                        });
                     });
             },
             onError: function(err) {
