@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+    <div id="overlay" class="overlay hidden">
+        <div class="modal">
+            <h2 id="modalTitle"></h2>
+            <p id="modalMessage"></p>
+            <button onclick="closeModal()" id="fermer">Fermer</button>
+        </div>
+    </div>
 <body>
     <h1>GoGekko</h1>
     <section id="seo-text">
@@ -65,5 +72,44 @@
             <p>L'hippocampe</p>
         </div>
     </div>
+    <h2 class="avis-h2">AVIS</h2>
+    <p class="avis-p"><span id="averageRating">0</span>/5 | <span id="reviewCount">0</span> avis</p>
+    <div id="reviews"></div>
+    <div id="reviewForm">
+        <label for="reviewName" class="reviewNameLabel">Votre nom :</label>
+        <input id="reviewName" placeholder="Votre nom">
+        <p id="starLabel">Note :</p>
+        <div id="stars">
+            <img src="./meta/images/star-regular-full.svg" data-value="1" width="20" function="star1">
+            <img src="./meta/images/star-regular-full.svg" data-value="2" width="20" function="star2">
+            <img src="./meta/images/star-regular-full.svg" data-value="3" width="20" function="star3">
+            <img src="./meta/images/star-regular-full.svg" data-value="4" width="20" function="star4">
+            <img src="./meta/images/star-regular-full.svg" data-value="5" width="20" function="star5">
+        </div>
+        <label for="reviewMessage" class="reviewMessageLabel">Votre avis :</label>
+        <textarea id="reviewMessage" placeholder="Votre avis..."></textarea>
+        <br>
+        <button onclick="sendReview()" id="reviewButton">Publier</button>
+    </div>
+    <br>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } 
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+        apiKey: "APIKEY",
+        authDomain: "PROJECT.firebaseapp.com",
+        projectId: "gogekko",
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.db = db;
+        window.addDoc = addDoc;
+        window.collection = collection;
+        window.getDocs = getDocs;
+    </script>
 </body>
 </html>

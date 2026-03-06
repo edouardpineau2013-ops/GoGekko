@@ -9,6 +9,59 @@ body {
     padding: 0;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#modalMessage {
+  margin-top: 10px;
+  color: #000000;
+  font-family: 'Audiowide', sans-serif;
+  font-size: 1rem;
+}
+
+#fermer {
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  animation: pop 0.3s ease;
+}
+
+.modal h2 {
+  margin-top: 0;
+  color: #000000;
+  font-family: 'Audiowide', sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 h1{
     color: #2c3e50;
     font-family: 'Audiowide', sans-serif;
@@ -272,4 +325,103 @@ h1{
     opacity: 0;
     transform: scale(0.9);
     pointer-events: none;
+}
+
+.avis-h2 {
+    color: #2c3e50;
+    font-family: 'Audiowide', sans-serif;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    font-size: 4rem;
+}
+
+.avis-p {
+    color: #2c3e50;
+    font-family: 'Audiowide', sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.review {
+    background: white;
+    width: 500px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Audiowide", sans-serif;
+}
+
+.review-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-rating {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.review-message {
+    color: #000000;
+}
+
+#reviewForm {
+    border: #000000 solid 2px;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Audiowide", sans-serif;
+}
+
+#reviewButton {
+  padding: 12px 25px;
+  border-radius: 15px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+#reviewButton:hover {
+  background: #0056b3;
+}
+
+#reviewMessage, #reviewName {
+    resize: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    font-size: 0.875rem;
+    margin-top: 10px;
+}
+
+#reviewMessage {
+    width: 375px;
+    height: 100px;
+}
+
+.reviewNameLabel, #starLabel, .reviewMessageLabel {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.reviewNameLabel {
+    margin-top: 0;
 }

@@ -1,3 +1,15 @@
+onload = loadReviews;
+
+function showModal(title, message) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalMessage").textContent = message;
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("overlay").classList.add("hidden");
+}
+
 function GeckoLink() {
     window.location.href = './animaux/gecko/gecko.html';
 }
@@ -127,3 +139,106 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+let rating = 0;
+
+const stars = document.querySelectorAll("#stars img");
+
+stars.forEach(star => {
+
+  star.addEventListener("click", () => {
+
+    rating = star.dataset.value;
+
+    stars.forEach(s => {
+      if (s.dataset.value <= rating) {
+        s.src = "./meta/images/star-solid-full.svg";
+      } else {
+        s.src = "./meta/images/star-regular-full.svg";
+      }
+    });
+
+  });
+
+});
+
+function star1() {
+    rating = 1;
+}
+
+function star2() {
+    rating = 2;
+}
+
+function star3() {
+    rating = 3;
+}
+
+function star4() {
+    rating = 4;
+}
+
+function star5() {
+    rating = 5;
+}
+
+async function sendReview() {
+
+const name = document.getElementById("reviewName").value;
+const message = document.getElementById("reviewMessage").value;
+
+if (!name || !message || rating === 0) {
+    showModal("Erreur 😬", "Veuillez remplir tous les champs et sélectionner une note.");
+    return;
+} else {
+    await addDoc(collection(db, "reviews"), {
+    name: name,
+    message: message,
+    rating: rating,
+    date: Date.now()
+    });
+}
+
+loadReviews();
+
+}
+
+async function loadReviews() {
+
+const snapshot = await getDocs(collection(db, "reviews"));
+
+const container = document.getElementById("reviews");
+container.innerHTML = "";
+
+let totalRating = 0;
+let count = 0;
+
+snapshot.forEach(doc => {
+
+const data = doc.data();
+
+totalRating += Number(data.rating);
+count++;
+
+container.innerHTML += `
+<div class="review">
+<div class="review-name"><strong>Nom: ${data.name}</strong></div>
+<div class="review-rating">Note: ${"⭐".repeat(data.rating)}</div>
+<p class="review-message">Avis: ${data.message}</p>
+</div>
+`;
+
+});
+
+if (count > 0) {
+
+const average = (totalRating / count).toFixed(1);
+
+document.getElementById("averageRating").textContent = `${"⭐".repeat(average)} | ${average}`;
+document.getElementById("reviewCount").textContent = count;
+
+}
+
+}
+
+loadReviews();
