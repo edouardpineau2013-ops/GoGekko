@@ -38,6 +38,22 @@ function HippocampeLink() {
     window.location.href = './animaux/hippocampe/hippocampe.html';
 }
 
+function TortueLink() {
+    window.location.href = './animaux/tortue/tortue.html';
+}
+
+function BaleineBelugaLink() {
+    window.location.href = './animaux/baleine beluga/baleine beluga.html';
+}
+
+function DauphinLink() {
+    window.location.href = './animaux/dauphin/dauphin.html';
+}
+
+function RequinMarteauLink() {
+    window.location.href = './animaux/requin-marteau/requin-marteau.html';
+}
+
 //Barre de recherche
 
 document.addEventListener("DOMContentLoaded", function() {

@@ -92,7 +92,7 @@ h1{
     justify-content: center;
 }
 
-.gecko-image {
+.gecko-image, .poulpe-image, .requin-image, .serpent-image, .dragon-image, .hippocampe-image, .tortue-image, .baleine-beluga-image, .dauphin-image, .requin-marteau-image, .caméléon-image {
     display: block;
     margin-right: 20px;
     width: 200px;
@@ -102,147 +102,9 @@ h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.gecko{
+.gecko, .poulpe, .requin, .serpent, .dragon, .hippocampe, .tortue, .baleine-beluga, .dauphin, .requin-marteau, .caméléon {
     display: block;
     margin-right: 20px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Audiowide, sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.caméléon-image {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.caméléon {
-    display: block;
-    margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Audiowide, sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.poulpe-image {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.poulpe {
-    display: block;
-    margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Audiowide, sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.requin-image {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.requin {
-    display: block;
-    margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Audiowide, sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.serpent-image {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.serpent {
-    display: block;
-    margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Audiowide, sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.dragon-image {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dragon {
-    display: block;
-    margin-left: 20px;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Audiowide, sans-serif;
-    text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.hippocampe-image {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.hippocampe {
-    display: block;
-    margin-left: 20px;
     width: 200px;
     height: 200px;
     object-fit: cover;
