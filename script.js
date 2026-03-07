@@ -93,6 +93,26 @@ document.addEventListener("DOMContentLoaded", function() {
             name: "hippocampe",
             link: "./animaux/hippocampe/hippocampe.html",
             element: document.querySelector(".hippocampe")
+        },
+        { 
+            name: "tortue",
+            link: "./animaux/tortue/tortue.html",
+            element: document.querySelector(".tortue")
+        },
+        { 
+            name: "baleine beluga",
+            link: "./animaux/baleine beluga/baleine beluga.html",
+            element: document.querySelector(".baleine-beluga")
+        },
+        { 
+            name: "dauphin",
+            link: "./animaux/dauphin/dauphin.html",
+            element: document.querySelector(".dauphin")
+        },
+        { 
+            name: "requin marteau",
+            link: "./animaux/requin-marteau/requin-marteau.html",
+            element: document.querySelector(".requin-marteau")
         }
     ];
 
