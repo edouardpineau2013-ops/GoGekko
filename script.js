@@ -278,3 +278,17 @@ document.getElementById("reviewCount").textContent = count;
 }
 
 loadReviews();
+
+function addToCart(name, price){
+
+cart.push({
+name:name,
+price:price
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function openCart(){ 
+    window.location.href = "./panier.html";
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -74,6 +74,8 @@
     <br>
     <div id="payment-element"></div>
     <button id="order" onclick="commander()">Commander</button>
+    <img src="/meta/images/cercleDeChargement.gif" alt="Chargement..." class="loading-gif" style="display: none;">
+    <button id="addToCart" onclick="addToCart('Caméléon', getPrixTotal(), document.getElementById('quantite').value, document.getElementById('longueur').value, 'cameleon', 'cameleon')">Ajouter au panier</button>
     <div id="paypal-button-container" style="display: none;"></div>
     <script>
         paypal.Buttons({
@@ -122,3 +124,6 @@
 </html>
 </body>
 </html>
+
+
+

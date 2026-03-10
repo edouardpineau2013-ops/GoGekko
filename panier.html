@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier | GoGekko</title>
+    <link rel="stylesheet" href="panier.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <script src="panier.js"></script>
+</head>
+<body>
+    <button id="retour" onclick="retour()">RETOUR</button>
+    <div id="cart"></div>
+    <label for="nom">Votre nom et prénom :</label>
+    <input type="text" id="nom" placeholder="Nom et prénom...">
+    <label for="email">Votre email :</label>
+    <input type="email" id="email" placeholder="Email...">
+    <label for="adresse">Adresse de livraison :</label>
+    <input type="text" id="adresse" placeholder="Adresse de livraison...">
+    <button id="clearCartBtn" onclick="clearCart()">Vider le panier</button>
+    <button id="commanderCartBtn" onclick="commanderCart()">Commander</button>
+</body>
+</html>

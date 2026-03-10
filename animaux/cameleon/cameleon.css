@@ -49,6 +49,10 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
+.loading-gif {
+  margin: auto;
+  width: 50px;
+}
 
 h1{
     color: #2c3e50;
@@ -152,6 +156,7 @@ h1{
 .prev { left: 40px; }
 .next { right: 40px; }
 
+
 body {
     font-family: Arial, sans-serif;
     max-width: 600px;
@@ -199,13 +204,10 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     cursor: pointer;
     margin-top: 20px;
     width: 50%;
+    
 }
 
-#retour:hover {
-    background-color: #0056b3;
-}
-
-#order {
+#order, #submit, #addToCart {
     background-color: #007bff;
     color: white;
     padding: 12px 30px;
@@ -217,7 +219,7 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     width: 100%;
 }
 
-#order:hover {
+#retour:hover, #order:hover, #submit:hover, #addToCart:hover {
     background-color: #0056b3;
 }
 
@@ -226,22 +228,6 @@ select, input[type="number"], input[type="checkbox"], input[type="text"], input[
     font-weight: bold;
     color: #27ae60;
     margin: 20px 0;
-}
-
-#submit {
-    background-color: #007bff;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
-}
-
-#submit:hover {
-    background-color: #0056b3;
 }
 
 #submit:disabled {

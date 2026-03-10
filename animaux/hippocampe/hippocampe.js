@@ -1,8 +1,8 @@
 const prixx = {
-    "8": 0.60,
-    "10": 0.80,
-    "13": 1.10,
-    "15": 1.60 
+    "8": 3.50,
+    "10": 4.00,
+    "13": 4.50,
+    "15": 5.00 
 };
 
 let currentIndex = 0;
@@ -45,8 +45,6 @@ function changeImage(direction) {
   document.getElementById("lightbox-img").src = images[currentIndex];
 }
 
-const FRAIS_LIVRAISON = 1.50;
-
 function showModal(title, message) {
   document.getElementById("modalTitle").textContent = title;
   document.getElementById("modalMessage").textContent = message;
@@ -65,9 +63,9 @@ function getPrixTotal() {
     
     if (prixx[longueur]) {
         const prixProduits = prixx[longueur] * quantite;
-        return prixProduits + FRAIS_LIVRAISON;
+        return prixProduits;
     }
-    return FRAIS_LIVRAISON;
+    return 0;
 }
 
 function updateHippocampe() {
@@ -80,11 +78,10 @@ function updateHippocampe() {
 
     if (prixx[longueur]) {
         const prixProduits = prixx[longueur] * quantite;
-        const prixSansTaxe = prixProduits + FRAIS_LIVRAISON;
-        const prixTotal = prixSansTaxe + 0.30 + (1.2/100 * prixSansTaxe);
-        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite} + ${FRAIS_LIVRAISON.toFixed(2)}€ de livraison + taxes paypal)`;
+        const prixTotal = prixProduits;
+        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite})`;
     } else {
-        prixElement.textContent = `Prix total: ${FRAIS_LIVRAISON.toFixed(2)}€ (frais de livraison)`;
+        prixElement.textContent = `Prix total: 0.00€`;
     }
 }
 
@@ -111,6 +108,11 @@ async function commander() {
         showModal("Veuillez accepter les conditions générales de vente.");
         return;
     }
+
+    const commanderButton = document.getElementById("order");
+    const loadingGif = document.querySelector(".loading-gif");
+    commanderButton.style.display = "none";
+    loadingGif.style.display = "block";
 
     const params = new URLSearchParams();
     params.append("nom", nom);
@@ -146,10 +148,32 @@ if (data.success) {
 
         
         // Masquer le bouton Commander et afficher le bouton PayPal
-        document.getElementById("order").style.display = "none";
+        document.querySelector(".loading-gif").style.display = "none";
         document.getElementById("paypal-button-container").style.display = "block";
 
     } catch (error) {
         alert("Erreur réseau : " + error.message);
     }
+}
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price, quantite, longueur, id, imageName){
+
+if (quantite == 1) {
+  showModal("Ajouté au panier", `${quantite} ${name} de ${longueur}cm a été ajouté à votre panier pour ${price.toFixed(2)}€.`);
+} else {
+  showModal("Ajouté au panier", `${quantite} ${name}s de ${longueur}cm ont été ajouté à votre panier pour ${price.toFixed(2)}€.`);
+}
+
+cart.push({
+name:name,
+price:price.toFixed(2),
+quantite:quantite,
+longueur:longueur,
+id:id,
+imageName:imageName
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
 }

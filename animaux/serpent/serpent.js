@@ -1,11 +1,9 @@
 const prixx = {
-    "15": 0.60,
-    "17": 0.80,
-    "20": 1.10,
-    "25": 1.60
+    "15": 3.50,
+    "17": 4.00,
+    "20": 4.50,
+    "25": 5.00
 };
-
-const FRAIS_LIVRAISON = 1.50;
 
 let currentIndex = 0;
 const images = [
@@ -65,9 +63,9 @@ function getPrixTotal() {
     
     if (prixx[longueur]) {
         const prixProduits = prixx[longueur] * quantite;
-        return prixProduits + FRAIS_LIVRAISON;
+        return prixProduits;
     }
-    return FRAIS_LIVRAISON;
+    return 0;
 }
 
 function updateSerpent() {
@@ -80,11 +78,10 @@ function updateSerpent() {
 
     if (prixx[longueur]) {
         const prixProduits = prixx[longueur] * quantite;
-        const prixSansTaxe = prixProduits + FRAIS_LIVRAISON;
-        const prixTotal = prixSansTaxe + 0.30 + (1.2/100 * prixSansTaxe);
-        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite} + ${FRAIS_LIVRAISON.toFixed(2)}€ de livraison + taxes paypal)`;
+        const prixTotal = prixProduits;
+        prixElement.textContent = `Prix total: ${prixTotal.toFixed(2)}€ (${prixx[longueur].toFixed(2)}€ X ${quantite})`;
     } else {
-        prixElement.textContent = `Prix total: ${FRAIS_LIVRAISON.toFixed(2)}€ (frais de livraison)`;
+        prixElement.textContent = `Prix total: 0.00€`;
     }
 }
 
@@ -157,4 +154,26 @@ if (data.success) {
     } catch (error) {
         alert("Erreur réseau : " + error.message);
     }
+}
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price, quantite, longueur, id, imageName){
+
+if (quantite == 1) {
+  showModal("Ajouté au panier", `${quantite} ${name} de ${longueur}cm a été ajouté à votre panier pour ${price.toFixed(2)}€.`);
+} else {
+  showModal("Ajouté au panier", `${quantite} ${name}s de ${longueur}cm ont été ajouté à votre panier pour ${price.toFixed(2)}€.`);
+}
+
+cart.push({
+name:name,
+price:price.toFixed(2),
+quantite:quantite,
+longueur:longueur,
+id:id,
+imageName:imageName
+});
+
+localStorage.setItem("cart", JSON.stringify(cart));
 }
